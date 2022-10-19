@@ -19,7 +19,7 @@ class Complejo (frozen=True, order=False):
         return Complejo(re,im)
     
     @staticmethod
-    def of_re(re:float) -> Complejo:
+    def of_re(re:float,im:float='-=') -> Complejo:
         return Complejo(re,0)
     
     @staticmethod
