@@ -7,6 +7,7 @@ Created on 18 oct 2022
 from __future__ import annotations
 from dataclasses import dataclass
 from math import atan2
+from pickle import FALSE, TRUE
 
 @dataclass (frozen = True , order = True)
 class Complejo:
@@ -25,37 +26,24 @@ class Complejo:
     
     @staticmethod
     def parse(cadena:str) -> Complejo:
-        st = ''
-        lista = []
+        
+        suma = False
+        resta = False
         for i in cadena:
-            if i == '+' or i == '-' or i == 'i':
-                list.append(float(st))
-            st = st + i
-        if len(list) == 1:
-            return Complejo(float(list[0]))
-        else:
-            return Complejo(float(list[0], float(list[1])))
-                
-        
-
-        
-        
-        return Complejo(float(lista[0]),float(lista[:-1])) 
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            if i=='+':
+                suma = True 
+            else:
+                resta = True 
+        if suma == True:
+            lista = cadena.split('+')
+        else :
+            lista = cadena.split('-')            
+                    
+        n = lista[0]
+        l = lista[-1].replace('i','')
+        return Complejo(float(n),float(l)) 
             
 
-    
     @property
     def abs(self) -> float:
         return (self.re**2+self.im**2)**(1/2)
