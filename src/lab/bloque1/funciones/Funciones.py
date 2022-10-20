@@ -23,6 +23,7 @@ def combinatorio(n:int,k:int) -> float:
     n_k =  fact(n-k)
     
     return n/(k*n_k)
+
 def calcular_s(n:int,k:int) -> float:
     fact_k = 1
     sumatorio = 0

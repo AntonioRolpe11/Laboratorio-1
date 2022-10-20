@@ -8,25 +8,51 @@ from __future__ import annotations
 from dataclasses import dataclass
 from math import atan2
 
-@dataclass
-class Complejo (frozen=True, order=False):
+@dataclass (frozen = True , order = True)
+class Complejo:
     
     re: float
-    im: float
+    im:float
+    
     
     @staticmethod
     def of(re:float,im:float) -> Complejo:
         return Complejo(re,im)
     
     @staticmethod
-    def of_re(re:float,im:float='-=') -> Complejo:
+    def of_re(re:float) -> Complejo:
         return Complejo(re,0)
     
     @staticmethod
-    def parse(text:str) -> Complejo:
-        lista = text.split('+','-')
+    def parse(cadena:str) -> Complejo:
+        st = ''
+        lista = []
+        for i in cadena:
+            if i == '+' or i == '-' or i == 'i':
+                list.append(float(st))
+            st = st + i
+        if len(list) == 1:
+            return Complejo(float(list[0]))
+        else:
+            return Complejo(float(list[0], float(list[1])))
+                
         
-        return Complejo(lista[0],lista[:-1]) 
+
+        
+        
+        return Complejo(float(lista[0]),float(lista[:-1])) 
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
             
 
     
