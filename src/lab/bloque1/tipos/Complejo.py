@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from math import atan2
 from pickle import FALSE, TRUE
 
-@dataclass (frozen = True , order = True)
+@dataclass (frozen = True , order = False)
 class Complejo:
     
     re: float
@@ -37,11 +37,12 @@ class Complejo:
         if suma == True:
             lista = cadena.split('+')
         else :
-            lista = cadena.split('-')            
+            lista = cadena.split(' ',1)            
                     
         n = lista[0]
         l = lista[-1].replace('i','')
-        return Complejo(float(n),float(l)) 
+        l2 = l.replace(' ','')
+        return Complejo(float(n),float(l2)) 
             
 
     @property

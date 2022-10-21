@@ -11,11 +11,13 @@ from lab.bloque1.tipos.Complejo import Complejo
 
 if __name__ == '__main__':
     
-    ng = Complejo.of_re(1)
+    ng = Complejo.of(1,-9)
     
     r = '5.8 - 233.35i'
     
     n = Complejo.parse(r)
     
     print(n)
+    
+    print(ng)
     
