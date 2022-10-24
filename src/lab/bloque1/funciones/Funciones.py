@@ -5,6 +5,9 @@ Created on 17 oct 2022
 @author: anton
 '''
 
+from us.lsi.tools.Preconditions import check_argument
+from typing import Callable
+
 def producto(n:int,k:int) -> int:
     x = 1
     for i in range(0,k):
@@ -27,8 +30,33 @@ def calcular_s(n:int,k:int) -> float:
         sumatorio = sumatorio + (((-1)**i)*combinatorio(k,i)*(k-i)**n)
     return (1/fact_k)*sumatorio
 
-def newton():
-    pass
+def newton(funcion:Callable,der:Callable,a:float,error:float):
+    
+    fun:float = lambda x : funcion
+    der_fun:float = lambda x : der
+    
+    x0 = a
+
+    error_actual = False
+    
+    while error_actual == False:
+        
+        raiz = float(x0-float(fun(x0)))/float(der_fun(x0))
+        
+        error_bucle= abs(raiz-x0)/raiz
+        
+        if error_bucle<error:
+            error_actual = True
+                    
+        x0 = raiz
+        
+    return x0
+        
+        
+    
+    
+    
+    
 
 if __name__ == '__main__':
     pass
