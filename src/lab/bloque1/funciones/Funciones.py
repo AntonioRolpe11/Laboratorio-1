@@ -9,6 +9,9 @@ from us.lsi.tools.Preconditions import check_argument
 from typing import Callable
 
 def producto(n:int,k:int) -> int:
+    check_argument(n > 0 and k > 0, f'n y k deben de ser positivos')
+    check_argument(n < k , f'n debe de ser mayor que k')
+    
     x = 1
     for i in range(0,k):
         x = x*(n-i) 
@@ -16,6 +19,10 @@ def producto(n:int,k:int) -> int:
 
 
 def combinatorio(n:int,k:int) -> float:
+    
+    check_argument(n > 0 and k > 0, f'n y k deben de ser positivos')
+    check_argument(n < k , f'n debe de ser mayor que k')
+    
     primero = producto(n,n)
     segundo = producto(k,k)
     otro = n-k
@@ -24,6 +31,9 @@ def combinatorio(n:int,k:int) -> float:
     return primero/(segundo*denm)
 
 def calcular_s(n:int,k:int) -> float:
+    check_argument(n > 0 and k > 0, f'n y k deben de ser positivos')
+    check_argument(n < k , f'n debe de ser mayor que k')
+    
     fact_k = producto(k,k)
     sumatorio = 0
     for i in range(0,k+1):
