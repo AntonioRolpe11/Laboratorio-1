@@ -12,24 +12,34 @@ from lab.bloque1.tipos.Complejo import Complejo
 if __name__ == '__main__':
     
     c1 = Complejo.of(5.7,5)
+    c2 = Complejo.of(5,7)
     
-    c2 = Complejo.of(5,7) 
+    print('#'*40)
+    print('TEST DE LA FACTORIA:')
+    print('El primer número complejo definido es: c1 =',c1,'\n')
     
-    r = '5.8 - 233.35i'
+    print('#'*40)
+    print('TEST DE LA FUNCION PARSE:')
+    print('El primer número complejo definido es: c2 =',c2,'\n')
     
-    n = Complejo.parse(r)
+    print('#'*40)
+    print('TEST DE EQUALS:')
+    print('¿Son iguales c1 y c2? -->', c1==c2,'\n')
     
-    print(Complejo.parse('57 + 98.9i'))
+    print('#'*40)
+    print('TEST DE ALGUNAS PROPIEDADES:')
+    print('El argumento de c1 es:', c1.arg)
+    print('El módulo de c2 es:', c2.abs,'\n')
     
-    print(c1.conjugado())
+    print('#'*40)
+    print('TEST DE ALGUNAS FUNCIONES:')
+    print('La suma entre c1 y c2 es:', c1+c2)
+    print('El producto entre c1 y c2 es:', c1*c2)
+    print('La division entre c1 y c2 es:', c1/c2,'\n')
     
-    print(c1+c2)
+     
     
-    print(c1*c2)
     
-    print(c1/c2)
-    
-    print(c1==c2)
     
 
     

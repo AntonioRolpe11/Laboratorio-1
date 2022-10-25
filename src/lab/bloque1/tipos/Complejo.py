@@ -45,22 +45,6 @@ class Complejo:
         l = lista[-1].replace('i','')
         l2 = l.replace(' ','')
         return Complejo(float(n),float(l2)) 
-            
-
-    @property
-    def abs(self) -> float:
-        return (self.re**2+self.im**2)**(1/2)
-    
-    def arg(self) -> float:
-        return atan2(self.re,self.im)
-       
-    def conjugado(self) -> Complejo:
-        if self.im>0:
-            return Complejo(self.re,-self.im)
-        elif self.im<0:
-            return Complejo(self.re,-self.im)
-        else:
-            return Complejo(self.re)
     
     def __add__(self,other:Complejo) -> Complejo:
         return Complejo(self.re+other.re,self.im+other.im)
@@ -87,6 +71,24 @@ class Complejo:
             return f'{self.im}i'
         else:
             return f'{self.re}'
+            
+
+    @property
+    def abs(self) -> float:
+        return (self.re**2+self.im**2)**(1/2)
+    
+    @property
+    def arg(self) -> float:
+        return atan2(self.re,self.im)
+    
+    @property 
+    def conjugado(self) -> Complejo:
+        if self.im==0:
+            return Complejo(self.re)
+        else:
+            return Complejo(self.re,-self.im)
+    
+    
         
 
 if __name__ == '__main__':
