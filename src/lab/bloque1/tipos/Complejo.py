@@ -7,7 +7,6 @@ Created on 18 oct 2022
 from __future__ import annotations
 from dataclasses import dataclass
 from math import atan2
-from us.lsi.tools.Preconditions import check_argument
 
 
 
@@ -34,17 +33,36 @@ class Complejo:
         for i in cadena:
             if i=='+':
                 suma = True 
-            else:
+            elif i=='-' in cadena[1:]:
                 resta = True 
         if suma == True:
             lista = cadena.split('+')
         else :
-            lista = cadena.split(' ',1)            
-                    
-        n = lista[0]
-        l = lista[-1].replace('i','')
-        l2 = l.replace(' ','')
-        return Complejo(float(n),float(l2)) 
+            lista = cadena.split('-')            
+        if resta== True and cadena[0]!='-':
+            n = lista[0]
+            l = lista[-1].replace('i','')
+            l2 = l.replace(' ','')
+            return Complejo(float(n),float(l2)*-1)
+        elif suma == True and cadena[0]!='-':
+            n = lista[0]
+            l = lista[-1].replace('i','')
+            l2 = l.replace(' ','')
+            return Complejo(float(n),float(l2))
+        
+        elif resta == True and cadena[0]=='-':
+            n = lista[1]
+            l = lista[-1].replace('i','')
+            l2 = l.replace(' ','')
+            return Complejo(float(n)*-1,float(l2)*-1)
+        elif suma == True and cadena[0]=='-':
+            n = lista[0]
+            l = l = lista[-1].replace('i','')
+            l2 = l.replace(' ','')
+            return Complejo(float(n),float(l2))
+            
+        
+        
     
     def __add__(self,other:Complejo) -> Complejo:
         return Complejo(self.re+other.re,self.im+other.im)

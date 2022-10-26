@@ -41,12 +41,9 @@ def calcular_s(n:int,k:int) -> float:
         sumatorio = sumatorio + (((-1)**i)*combinatorio(k,i)*(k-i)**n)
     return (1/fact_k)*sumatorio
 
-#def newton(f,der_f,a:float,error:float):
-    
-   
-        
-        
-           
+def newton(f:Callable,der_f:Callable,a:float,error:float):
+    pass
+         
 
 
 if __name__ == '__main__':
