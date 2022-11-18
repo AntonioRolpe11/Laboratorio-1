@@ -36,7 +36,7 @@ class Matriz(Generic[E]) :
         ls = [i.split(' ') for i in ls]
     
         lf = []
-    #afoiafsoif
+        
         for i in range(len(ls)):
         
             lf += [[t(j) for j in ls[i]]]
