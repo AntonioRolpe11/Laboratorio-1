@@ -9,6 +9,8 @@ from lab.bloque1.funciones.Funciones import *
 
 
 if __name__ == '__main__':
+    fun = lambda x: 2*x**2
+    der_fun = lambda x: 4*x
     
      
     print('#'*40)
@@ -25,4 +27,4 @@ if __name__ == '__main__':
     
     print('#'*40)
     print('TEST DE LA FUNCION 4:')
-    print("Resultado de la función 4 con a = 3, e = 0.001, f(x) = 2x^2 y f'(x) = 4x:")
+    print("Resultado de la función 4 con a = 3, e = 0.001, f(x) = 2x^2 y f'(x) = 4x:", newton(fun,der_fun,3,0.01))

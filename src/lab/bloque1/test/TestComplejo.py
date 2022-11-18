@@ -13,7 +13,7 @@ if __name__ == '__main__':
     
     c1 = Complejo.of(5.7,5)
     
-    c2_0 = '-5 -7i'
+    c2_0 = '-5 +7i'
     
     c2 = Complejo.parse(c2_0)
     

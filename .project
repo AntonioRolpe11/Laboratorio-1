@@ -3,6 +3,7 @@
 	<name>Laboratorio-1</name>
 	<comment></comment>
 	<projects>
+		<project>pyhton_v1</project>
 		<project>Python_v1</project>
 	</projects>
 	<buildSpec>

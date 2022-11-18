@@ -6,8 +6,6 @@ Created on 17 oct 2022
 '''
 
 from us.lsi.tools.Preconditions import check_argument
-from typing import Callable 
-
 
 def producto(n:int,k:int) -> int:
     check_argument(n >= 0 and k >= 0, f'n y k deben de ser positivos')
@@ -41,9 +39,18 @@ def calcular_s(n:int,k:int) -> float:
         sumatorio = sumatorio + (((-1)**i)*combinatorio(k,i)*(k-i)**n)
     return (1/fact_k)*sumatorio
 
-def newton(f:Callable,der_f:Callable,a:float,error:float):
-    pass
-         
+def newton (fun:callable(float),der_fun:callable(float),a:float, e:float)-> float:    
+    
+    x0 = a
+    
+    while True:
+        
+        x1 = x0 - fun(x0)/der_fun(x0)
+        if abs(x1-x0) < e:
+            break
+        
+        x0 = x1   
+    return x0
 
 
 if __name__ == '__main__':

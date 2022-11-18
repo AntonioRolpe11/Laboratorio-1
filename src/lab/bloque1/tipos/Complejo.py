@@ -7,6 +7,7 @@ Created on 18 oct 2022
 from __future__ import annotations
 from dataclasses import dataclass
 from math import atan2
+from us.lsi.tools.Preconditions import check_argument
 
 
 
@@ -28,17 +29,22 @@ class Complejo:
     @staticmethod
     def parse(cadena:str) -> Complejo:
         
+        cadena = cadena.strip()
+        
         suma = False
         resta = False
+        
         for i in cadena:
             if i=='+':
                 suma = True 
             elif i=='-' in cadena[1:]:
                 resta = True 
+                
         if suma == True:
             lista = cadena.split('+')
         else :
-            lista = cadena.split('-')            
+            lista = cadena.split('-')   
+                     
         if resta== True and cadena[0]!='-':
             n = lista[0]
             l = lista[-1].replace('i','')
